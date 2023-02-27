@@ -1,1 +1,1 @@
-# webpack_module
+# typescript_module
