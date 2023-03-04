@@ -15,14 +15,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "public/favicon.png"),
-          to: path.resolve(__dirname, "dist"),
-        },
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, "public/favicon.png"),
+    //       to: path.resolve(__dirname, "dist"),
+    //     },
+    //   ],
+    // }),
     new MiniCssExtractPlugin(),
   ],
   module: {
