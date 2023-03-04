@@ -33,23 +33,19 @@ interface Data {
   body: string
 }
 
-interface obj {
+interface Obj {
     id: string,
     title: string,
     body: string
 }
 
-interface allIds {
-  allIds: string[]
+interface ById {
+  [key: string]: Obj
 }
 
-interface byId {
-  [key: string]: obj
-}
-
-interface returnData {
-    byId: byId,
-    allIds: allIds
+interface ReturnData {
+    byId: ById,
+    allIds: string[]
 
 }
 
@@ -91,16 +87,14 @@ const posts: Array<Data> = [
   }
 ];
 
-const normalizeData = (unnormalizedData: Array<Data>): returnData => {
-  const data: any = {
-    byId: {},
-    allIds: []
-  };
+const normalizeData = (unnormalizedData: Array<Data>): ReturnData => {
+  const byId: ById = {};
+  const ids: string[] = [];
   unnormalizedData.forEach(item => {
-    data.allIds.push(item.id);
-    data.byId[item.id] = item;
+    ids.push(item.id);
+    byId[item.id] = item;
   })
-  return data as returnData;
+  return {byId: byId, allIds: ids};
 };
 
 console.log(normalizeData(posts));

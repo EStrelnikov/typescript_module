@@ -45,15 +45,13 @@ const posts = [
     }
 ];
 const normalizeData = (unnormalizedData) => {
-    const data = {
-        byId: {},
-        allIds: []
-    };
+    const byId = {};
+    const ids = [];
     unnormalizedData.forEach(item => {
-        data.allIds.push(item.id);
-        data.byId[item.id] = item;
+        ids.push(item.id);
+        byId[item.id] = item;
     });
-    return data;
+    return { byId: byId, allIds: ids };
 };
 console.log(normalizeData(posts));
 /**
